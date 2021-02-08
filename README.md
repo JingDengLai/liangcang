@@ -1,0 +1,2 @@
+# liangcang
+liangcang static page
