@@ -1,0 +1,73 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, form {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: "Microsoft YaHei";
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}
+
+.cl {
+    clear: both;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 1200px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1680px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@font-face {
+    font-family: 'AGENCYR';
+    src: url('AGENCYR.TTF');
+}

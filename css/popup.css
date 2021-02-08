@@ -1,0 +1,86 @@
+.alert-controller .modal-dialog {
+    width: 400px;
+}
+.alert-controller .modal-content {
+    border-radius: 0;
+    border: 3px solid rgba(54,58,68,0.5);
+}
+.alert-controller .modal-content .modal-title {
+	font-weight: 600;
+}
+.alert-controller .modal-body {
+    position: relative;
+    padding: 6px 15px;
+}
+
+.alert-controller .modal-header {
+    padding: 15px 25px 4px 25px;
+    border-bottom: 0;
+}
+
+.alert-controller .modal-footer {
+    border-top: 0;
+}
+.alert-controller .btn {
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    height: 30px;
+    line-height: 30px;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    color: #fff;
+    background: #00c6ff;
+}
+
+.alert-controller .btn.cancle {
+    color: #363a44;
+    background: #f3f3f3;
+}
+
+.alert-controller .modal-footer {
+    text-align: center;
+}
+.alert-controller .zcqr_body {
+    padding: 30px 20px 20px;
+    text-align: center;
+}
+
+.alert-controller .zcqr_body i {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.alert-controller .success i {
+    background: url(../images/success.png);
+    background-size: 50px 50px;
+}
+.alert-controller .warning i {
+    background: url(../images/zcqr.png);
+    background-size: 50px 50px;
+}
+.alert-controller .zcqr_body span {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 14px;
+    text-align: left;
+}
+.alertMsg{
+	width: 150px;
+	display: inline-block;
+	vertical-align: middle;
+}

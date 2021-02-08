@@ -1,0 +1,30 @@
+
+.modal-dialog{
+	width: 1200px;
+}
+
+.modal-dialog .modal-content .modal-body{
+	max-height: 800px;
+	display: flex;
+	justify-content: ;
+}
+
+.clearfix{
+	display: flex;
+	flex-direction: column;
+}
+
+.updateform .form-group{
+	width: unset;
+	padding: 10px 0;
+}
+
+.form-group label{
+	width: 120px;
+}
+
+#mapid{
+	width: 700px;
+	height: 700px;
+	/* background-color: #0000FF; */
+}

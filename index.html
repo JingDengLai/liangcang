@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="context-path" th:content="@{/}" />
+    <base th:href="@{/}" />
+    <title>智慧粮食管理平台</title>
+    <link type="image/x-icon" rel="icon" href="./images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="./components/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./components/bootstrap-table/bootstrap-table.min.css" />
+    <link rel="stylesheet" type="text/css" href="./components/datetimepicker/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/platform.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/popup.css" />
+</head>
+<body>
+<!--header-->
+<header>
+    <div th:replace="header :: header"></div>
+    <div class="head-nav">
+        <div class="head-im">
+            <a th:href="@{/}">首页</a>  <a href="javascript:void(0)">安全防范系统</a>
+        </div>
+    </div>
+</header>
+<div class="content-wrap" style="overflow: hidden;">
+    <div class="content">
+        <div class="container-wrapper">
+            <div class="con-container inner-container safe-container">
+                <div class="hover-common">
+                    <a class="usermanager" th:href="${#lists.contains(session.user.menuCodes, 'YWGL')} ? @{/business} : 'javascript:;'" th:classappend="${#lists.contains(session.user.menuCodes, 'YWGL')} ? '' : 'disable-bg'"> <span class="usermanager_num">1</span>
+                        <div class="variety_logo"></div>
+                        <p>视频监控系统</p>
+                    </a>
+                    <a class="person" href="patrolSystem/main.html" th:href="${#lists.contains(session.user.menuCodes, 'XTBG')} ? @{/oa} : 'javascript:;'" th:classappend="${#lists.contains(session.user.menuCodes, 'XTBG')} ? '' : 'disable-bg'"> <span class="person_num">2</span>
+                        <div class="warehouseManage_logo"></div>
+                        <p>智能巡更系统</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-ui">
+    <span>Copyright ©2017 科润智能科技股份有限公司</span>
+</div>
+</body>
+<script type="text/javascript" src="./components/jquery.min.js"></script>
+<script type="text/javascript" src="./components/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+</html>
