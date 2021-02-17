@@ -72,73 +72,108 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title" id="addModalLabel"></h4>
 				</div>
-				<div class="modal-body wicket_body">
-					<div class="form-box">
-						<form id="dataForm" class="updateform">
-							<input type="hidden" id="operation" /> 
-							<input type="hidden" id="id" name="id" />
-							<div class="clearfix">
-								<div class="form-label">
-									基本信息
+				<div class="modal-body wicket_body plan-modal">
+					<div class="plan">
+						<div class="form-box plan-1">
+							<form id="dataForm" class="updateform">
+								<input type="hidden" id="operation" /> 
+								<input type="hidden" id="id" name="id" />
+								<div class="clearfix">
+									<div class="form-label">
+										基本信息
+									</div>
+									<div class="form-group">
+										<label for="name" class="control-label">计划名称:</label> <input type="text" class="form-control" id="name" name="name"/>
+									</div>
+									<div class="form-group">
+										<label for="code" class="control-label">巡检路线:</label> <input type="text" class="form-control" id="code" name="code"/>
+									</div>
+									<div class="form-group">
+										<label for="code" class="control-label">线路名称:</label> <input type="text" class="form-control" id="code" name="code"/>
+									</div>
+									<div class="form-group">
+										<label for="code" class="control-label">计划状态:</label> <input type="text" class="form-control" id="code" name="code"/>
+									</div>
 								</div>
-								<div class="form-group">
-									<label for="name" class="control-label">计划名称:</label> <input type="text" class="form-control" id="name" name="name"/>
-								</div>
-								<div class="form-group">
-									<label for="code" class="control-label">巡检路线:</label> <input type="text" class="form-control" id="code" name="code"/>
-								</div>
-								<div class="form-group">
-									<label for="code" class="control-label">线路名称:</label> <input type="text" class="form-control" id="code" name="code"/>
-								</div>
-								<div class="form-group">
-									<label for="code" class="control-label">计划状态:</label> <input type="text" class="form-control" id="code" name="code"/>
-								</div>
+							</form>
+						</div>
+										
+						<div class="plan-2">
+							<div class="form-label plan-2-1">
+								巡检员
+								<a href="#" id="selectPoint">添加</a>
 							</div>
-							
-							<!-- <div class="point-list-box">
-								<div class="form-label">
-									巡检点列表
-									<a href="#" id="selectPoint">选择巡检点</a>
-								</div>
-								<div class="point-list">
-									<table class="table table-bordered">
-									  <thead>
-									    <tr>
-									      <th scope="col">序号</th>
-									      <th scope="col">编号</th>
-									      <th scope="col">名称</th>
-									      <th scope="col">操作</th>
-									    </tr>
-									  </thead>
-									  <tbody>
-									    <tr>
-									      <th scope="row">1</th>
-									      <td>Mark</td>
-									      <td>Otto</td>
-									      <td>删除</td>
-									    </tr>
-									    <tr>
-									      <th scope="row">2</th>
-									      <td>Jacob</td>
-									      <td>Thornton</td>
-									      <td>删除</td>
-									    </tr>
-									    <tr>
-									      <th scope="row">3</th>
-									      <td>Larry the Bird</td>
-									      <td>@twitter</td>
-										  <td>删除</td>
-									    </tr>
-									  </tbody>
-									</table>
-								</div>
-							</div> -->
-							
-							<!-- <div class="btn-footer">
-								<button type="submit" class="btn btn-primary btn_add btn-common" id="btn_add">保存</button>
-								<button type="button" class="btn btn-default btn-common" data-dismiss="modal">取消</button>
-							</div> -->
-						</form>
+							<div class="plan-2-2">
+								<table class="table table-bordered">
+								  <thead>
+								    <tr>
+								      <th scope="col">人员编号</th>
+								      <th scope="col">人员姓名</th>
+								      <th scope="col">操作</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <th scope="row">1</th>
+								      <td>Mark</td>
+								      <td>删除</td>
+								    </tr>
+								    <tr>
+								      <th scope="row">2</th>
+								      <td>Jacob</td>
+								      <td>删除</td>
+								    </tr>
+								    <tr>
+								      <th scope="row">3</th>
+								      <td>@twitter</td>
+									  <td>删除</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</div>
+						</div>
+						<div class="plan-3">
+							<div class="form-label plan-3-1">
+								管理员
+								<a href="#" id="selectPoint">添加</a>
+							</div>
+							<div class="plan-3-2">
+								<table class="table table-bordered">
+								  <thead>
+								    <tr>
+								      <th scope="col">人员编号</th>
+								      <th scope="col">人员姓名</th>
+								      <th scope="col">操作</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <th scope="row">1</th>
+								      <td>Mark</td>
+								      <td>删除</td>
+								    </tr>
+								    <tr>
+								      <th scope="row">2</th>
+								      <td>Jacob</td>
+								      <td>删除</td>
+								    </tr>
+								    <tr>
+								      <th scope="row">3</th>
+								      <td>@twitter</td>
+									  <td>删除</td>
+								    </tr>
+								  </tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				
+					<div class="plan-cycle">
+						
+					</div>
+					<div class="btn-footer">
+						<button type="submit" class="btn btn-primary btn_add btn-common" id="btn_add">保存</button>
+						<button type="button" class="btn btn-default btn-common" data-dismiss="modal">取消</button>
 					</div>
 				</div>
 			</div>
