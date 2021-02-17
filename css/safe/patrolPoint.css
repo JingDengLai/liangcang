@@ -17,14 +17,44 @@
 .updateform .form-group{
 	width: unset;
 	padding: 10px 0;
+	display: table;
+	
 }
 
 .form-group label{
-	width: 120px;
+	max-width: 120px;
 }
+
 
 #mapid{
 	width: 700px;
 	height: 700px;
 	/* background-color: #0000FF; */
+}
+
+
+.form-label{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.form-label a{
+	font-weight: unset;
+	font-size: 13px;
+	margin-left: 20px;
+	border: 1px solid #CCCCCC;
+	padding: 8px 10px;
+}
+
+.form-box{
+	width: 435px;
+}
+
+.point-list-box{
+	margin-top: 10px;
+}
+
+.point-list{
+	margin-top: 15px;
+	width: 95%;
 }

@@ -36,15 +36,15 @@
                         <div class="detection_logo"></div>
                         <p>巡更点管理</p>
                     </a>
-                    <a class="check" th:href="${#lists.contains(session.user.menuCodes, 'BBYCX')} ? @{/report} : 'javascript:;'" th:classappend="${#lists.contains(session.user.menuCodes, 'BBYCX')} ? '' : 'disable-bg'"> <span class="check_num">2</span>
+                    <a class="check" href="patrolRoute.html" th:href="${#lists.contains(session.user.menuCodes, 'BBYCX')} ? @{/report} : 'javascript:;'" th:classappend="${#lists.contains(session.user.menuCodes, 'BBYCX')} ? '' : 'disable-bg'"> <span class="check_num">2</span>
                         <div class="check_logo"></div>
                         <p>巡更路线管理</p>
                     </a>
-                    <a class="log" th:href="${#lists.contains(session.user.menuCodes, 'JSFXYYJ')} ? @{/warning} : 'javascript:;'" th:classappend="${#lists.contains(session.user.menuCodes, 'JSFXYYJ')} ? '' : 'disable-bg'" > <span class="log_num">3</span>
+                    <a class="log" href="patrolPlan.html" th:href="${#lists.contains(session.user.menuCodes, 'JSFXYYJ')} ? @{/warning} : 'javascript:;'" th:classappend="${#lists.contains(session.user.menuCodes, 'JSFXYYJ')} ? '' : 'disable-bg'" > <span class="log_num">3</span>
                         <div class="producing_logo"></div>
                         <p>巡更计划管理</p>
                     </a>
-                    <a class="institution" th:href="${#lists.contains(session.user.menuCodes, 'JCXX')} ? @{/basic} : 'javascript:;'" th:classappend="${#lists.contains(session.user.menuCodes, 'JCXX')} ? '' : 'disable-bg'"  > <span class="institution_num">4</span>
+                    <a class="institution" href="patrolLog.html" th:href="${#lists.contains(session.user.menuCodes, 'JCXX')} ? @{/basic} : 'javascript:;'" th:classappend="${#lists.contains(session.user.menuCodes, 'JCXX')} ? '' : 'disable-bg'"  > <span class="institution_num">4</span>
                         <div class="baseinfo_logo"></div>
                         <p>巡更日志管理</p>
                     </a>

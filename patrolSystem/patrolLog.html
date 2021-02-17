@@ -7,7 +7,7 @@
     <meta name="renderer" content="webkit" />
     <meta name="context-path" th:content="@{/}" />
     <base th:href="@{/}" />
-    <title>巡更点管理</title>
+    <title>巡更日志管理</title>
     <link type="image/x-icon" rel="icon" href="../images/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="../components/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="../components/bootstrap-table/bootstrap-table.min.css" />
@@ -16,7 +16,6 @@
     <link rel="stylesheet" type="text/css" href="../css/platform.css" />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <link rel="stylesheet" type="text/css" href="../css/popup.css" />
-	<link rel="stylesheet" type="text/css" href="../css/safe/leaflet.css" />
 	<link rel="stylesheet" type="text/css" href="../css/safe/patrolPoint.css" />
 </head>
 <body>
@@ -27,7 +26,7 @@
                 <a th:href="@{/}">首页</a>
                 <a href="javascript:void(0)">安全防范系统</a>
                 <a href="javascript:void(0)">智能巡更系统</a>
-                <a href="javascript:void(0)">巡更点管理</a>
+                <a href="javascript:void(0)">巡更日志管理</a>
             </div>
         </div>
     </header>
@@ -37,7 +36,7 @@
    				<div class="sms-btn-group sms-btn-common">
    					<form name="searchform" id="searchform">
    						<div style="display: inline-block;" class="form-group">
-   							<label style="width: unset;">巡更点名称</label> <input type="text" name="name" id="name" placeholder="请输入名称进行查询" style="width: 240px;" />
+   							<label style="width: unset;">编号</label> <input type="text" name="name" id="name" placeholder="请输入名称进行查询" style="width: 240px;" />
    						</div>
    						<div class="sms-btn-group">
    							<button type="button" class="btn btn-search" id="submit_search">
@@ -49,74 +48,24 @@
    				</div>
    				<form class="form-inline" style="position: relative;">
    					<div class="btn btn-primary btn-lg flow-add" id="add">
-   						<img src="../images/icon/add.png" />&nbsp; <span>添加</span>
+   						<img src="../images/icon/add.png" />&nbsp; <span>查看</span>
    					</div>
    					<span class="separator">|</span>
    					<div class="btn btn-primary btn-lg flow-add" id="edit">
-   						<img src="../images/icon/edit.png" />&nbsp; <span>修改</span>
-   					</div>
-   					<span class="separator">|</span>
-   					<div class="flow-add" id="com_delete">
-   						<img src="../images/icon/delete.png" />&nbsp; <span>删除</span>
+   						<img src="../images/icon/edit.png" />&nbsp; <span>导出</span>
    					</div>
    				</form>
    			</div>
    			<table id="table" class="table-striped"></table>
    		</div>
    	</div>
-	
-	<!-- 增加 编辑 -->
-	<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop='static' data-keyboard="true">
-		<div class="modal-dialog wid_f wid_big">
-			<div class="modal-content wicket wicket_big">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="addModalLabel"></h4>
-				</div>
-				<div class="modal-body wicket_body">
-					<div class="form-box">
-						<form id="dataForm" class="updateform">
-							<input type="hidden" id="operation" /> 
-							<input type="hidden" id="id" name="id" />
-							<div class="clearfix">
-								<div class="form-group">
-									<label for="name" class="control-label">巡检点名称:</label> <input type="text" class="form-control" id="name" name="name"/>
-								</div>
-								<div class="form-group">
-									<label for="code" class="control-label">说明:</label> <input type="text" class="form-control" id="code" name="code"/>
-								</div>
-								<div class="form-group">
-									<label for="priorityLevel" class="control-label">设备ID:</label> <input type="text" class="form-control" id="priorityLevel" name="priorityLevel"/>
-								</div>
-								<div class="form-group">
-									<label for="code" class="control-label">参考图片:</label> <input type="file" class="form-control" id="priorityLevel" name="priorityLevel"/>
-								</div>
-							</div>
-							<div class="btn-footer">
-								<button type="submit" class="btn btn-primary btn_add btn-common" id="btn_add">保存</button>
-								<button type="button" class="btn btn-default btn-common" data-dismiss="modal">取消</button>
-							</div>
-						</form>
-					</div>
-					<div class="map-box" id="mapid">
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="map-box" id="mapid2">
-		
-	</div>
     <script type="text/javascript" src="../components/jquery.min.js"></script>
     <script type="text/javascript" src="../components/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../components/bootstrap-table/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="../components/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
     <script type="text/javascript" src="../js/common.js"></script>
    	<script type="text/javascript" src="../components/jquery-ui.js"></script>
-	<script type="text/javascript" src="../js/safe/leaflet.js"></script>
-	<script type="text/javascript" src="../js/safe/inItMap.js"></script>
-	<script type="text/javascript" src="../js/safe/patrolPoint.js"></script>
+	<script type="text/javascript" src="../js/safe/patrolLog.js"></script>
 </body>
 
 </html>

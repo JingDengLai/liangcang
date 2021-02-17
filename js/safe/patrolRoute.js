@@ -18,7 +18,7 @@ $(function () {
 		$("#code").removeAttr("unselectable"); 
 		$("#code").css({"cursor": ""});
 		$("#dataForm").reset();
-		$("#addModalLabel").html("新增巡检点");
+		$("#addModalLabel").html("新建巡检路线");
 		$("#operation").val("add");
 		$('#addModal').modal('show');
 		// 添加leaflet地图
@@ -30,46 +30,47 @@ $(function () {
 		$("#addModal form").each(function() {
 			$(this).reset();
 		});
-	})
+	});
+	
+	//选择巡检点模态框显示
+	$('#selectPoint').click(function(){
+		$('#selectModal').modal('show');
+	});
+	
+	// 多个模态框逻辑问题
+	$(document).on('show.bs.modal', '.modal', function() {
+		var zIndex = 1040 + (10 * $('.modal:visible').length);
+		$(this).css('z-index', zIndex);
+		setTimeout(function() {
+			$('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+		}, 0);
+	});
 });
 
 function initTable() {
     $('#table').bootstrapTable({
         url: '../js/safe/data1.json',
         method: 'get',
-        columns: [ {
-            title: '全选',
-            field: '全选',
-            checkbox: true
-        }, {
-            field: 'code',
-            title: '编号'
-        }, {
-            field: 'name',
-            title: '巡检点名称'
-        }, {
-            field: 'equip',
-            title: '设备ID'
-        },{
-            field: 'desc',
-            title: '说明'
-        },
-		// {
-  //           field: 'operate',
-  //           title: '操作',
-  //           formatter: operateFormatter //自定义方法，添加操作按钮
-  //       },
+        columns: [ 
+			{
+				title: '全选',
+				field: '全选',
+				checkbox: true
+			}, 
+			{
+				field: 'code',
+				title: '编号'
+			}, 
+			{
+				field: 'name',
+				title: '巡检路线名称'
+			},
+			{
+				field: 'desc',
+				title: '说明'
+			},
+
 		],
 		
     })
 }
-
-// function operateFormatter(value, row, index) {//赋予的参数
-//     return [
-//         '<button class="btn activ" id="openfile">编辑</button>',
-//         '<button class="btn activ" id="openfile">删除</button>'
-//     ].join('');
-// }
-
-
-
