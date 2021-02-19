@@ -169,7 +169,62 @@
 					</div>
 				
 					<div class="plan-cycle">
-						
+						<div class="plan-cycle-1">设置有效期、执行周期</div>
+						<div class="plan-cycle-2">
+							<div class="plan-cycle-2-1 form-group">
+								<div class="startTime">
+									<label>开始日期</label> <input name="beginDate" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
+								</div>
+								<div class="endTime">
+									<label>结束日期</label><input name="endDate" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
+								</div>
+							</div>
+							<div class="plan-cycle-2-2">
+								<div class="plan-cycle-2-2-1">
+									<span class="day active">每天</span>
+									<span class="week">每周</span>
+									<span class="month">每月</span>
+									<span class="custom">自定义</span>
+								</div>
+								<div class="plan-cycle-2-2-2">
+									<div class="day-content form-group">
+										<div class="day-content-1">
+											<label>开始时间</label><input name="day-beginTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+										</div>
+										<div class="day-content-2">
+											<label>结束时间</label><input name="day-endTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+										</div>
+									</div>
+									<div class="week-content form-group">
+										<div class="week-content-1">
+											<div class="title">日期</div>
+											<div class="list">
+												<span>周一</span>
+												<span>周二</span>
+												<span>周三</span>
+												<span>周四</span>
+												<span>周五</span>
+												<span>周六</span>
+											</div>
+										</div>
+										<div class="week-content-2">
+											<div class="day-content-1">
+												<label>开始时间</label><input name="day-beginTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+											</div>
+											<div class="day-content-2">
+												<label>结束时间</label><input name="day-endTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+											</div>
+										</div>
+									</div>
+									<div class="month-content">
+										
+									</div>
+									<div class="custom-content">
+										
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="btn-footer">
 						<button type="submit" class="btn btn-primary btn_add btn-common" id="btn_add">保存</button>
@@ -184,8 +239,11 @@
     <script type="text/javascript" src="../components/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../components/bootstrap-table/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="../components/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="../components/datepicker/WdatePicker.js"></script>
     <script type="text/javascript" src="../js/common.js"></script>
    	<script type="text/javascript" src="../components/jquery-ui.js"></script>
+	<script type="text/javascript" src="../components/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="../components/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script type="text/javascript" src="../js/safe/patrolPlan.js"></script>
 </body>
 

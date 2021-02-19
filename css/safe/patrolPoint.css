@@ -79,3 +79,102 @@
 .plan-2-2,.plan-3-2{
 	margin-top: 20px;
 }
+
+.plan-cycle{
+	background-color: rgb(206,219,222);
+}
+
+.plan-cycle-1{
+	font-size: 20px;
+	padding: 10px 20px;
+}
+
+.plan-cycle-2-1{
+	display: flex;
+}
+
+.plan-cycle-2-1 label{
+	color: #000000;
+}
+
+.plan-cycle-2-1>div{
+	display: flex;
+	align-items: center;
+	margin: 0 40px;
+	padding: 20px 0;
+}
+
+.plan-cycle-2-1>div input, .plan-cycle-2-2-2>div input{
+	margin-left: 20px;
+	background-color: #FFFFFF;
+	border-radius: 4px;
+	border: 1px solid #dcdcdc !important;
+}
+
+.plan-cycle-2-2{
+	background-color: #FFFFFF;
+}
+
+.plan-cycle-2-2-1{
+	padding: 10px 20px;
+	display: flex;
+}
+
+.plan-cycle-2-2-1 span{
+	display: block;
+	background-color: rgb(245,245,245);
+	font-size: 15px;
+	font-weight: bold;
+	font-family: "microsoft yahei";
+	padding: 5px 30px;
+	margin: 0 2px;
+	border: 1px solid #CCCCCC;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.plan-cycle-2-2-1 span.active{
+	background-color: rgb(255,255,255);
+	border-top: 2px solid #000000;
+}
+
+.day-content,.week-content-2{
+	display: flex;
+}
+
+.plan-cycle-2-2-2>div label{
+	color: #000000;
+}
+
+.day-content>div,.week-content-2>div{
+	margin: 0 40px;
+	padding: 10px 0;
+}
+
+.week-content-1{
+	display: flex;
+	align-items: center;
+	padding: 10px 20px;
+	border: 1px dashed #DCDCDC;
+	border-radius: 5px;
+}
+
+.week-content-1 .title{
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.week-content-1 .list{
+	display: flex;
+	justify-content: space-around;
+	
+}
+
+.week-content-1 .list span{
+	display: block;
+	padding: 5px 15px;
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
+	margin-left: 50px;
+}

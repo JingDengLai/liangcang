@@ -23,6 +23,15 @@ $(function () {
 		$('#addModal').modal('show');
 	});
 	
+	
+	$(".day-startTime").datetimepicker({
+		format: 'hh:ii',//显示格式
+		language: "zh-CN",
+		startView: "hour",
+		autoclose:true,
+	})
+	
+	$(".day-startTime").datetimepicker("setDate", new Date() );
 });
 
 function initTable() {

@@ -2,6 +2,7 @@ var map,
 	lat = 262,
 	lng = 350,
 	layerGroup;
+var coordinate;
 
 function initMap(){
 	if (map != undefined) { map.remove(); }
@@ -30,7 +31,8 @@ function initMap(){
 	map.on('click',function(e){
 		layerGroup.clearLayers();
 		layerGroup.addLayer(L.marker(e.latlng));
-		console.log(e.latlng)
+		coordinate = e.latlng;
+		console.log(coordinate)
 		// popup.setLatLng(e.latlng).setContent("You clicked the map at" + e.latlng.toString()).openOn(map)
 	})
 }
