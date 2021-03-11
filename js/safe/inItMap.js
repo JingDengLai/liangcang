@@ -1,6 +1,6 @@
 var map,
-	lat = 262,
-	lng = 350,
+	lat = 560/2,
+	lng = 1100/2,
 	layerGroup;
 var coordinate;
 
@@ -16,7 +16,7 @@ function initMap(){
 		crs: L.CRS.Simple
 	});
 		
-	var imageUrl = 'http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
+	var imageUrl = '/liangcang/images/map/bsy_map.png',
 		imageBounds = [{lat:0,lng:0},{lat:lat,lng:lng}];
 	L.imageOverlay(imageUrl, imageBounds).addTo(map);
 	map.setMaxBounds(imageBounds);

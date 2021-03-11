@@ -1,0 +1,40 @@
+.vehicle-box label{
+	color: #000000;
+	width: 110px;
+}
+
+
+.vehicle-box select, .vehicle-box input{
+	border: 1px solid #DCDCDC !important;
+	background-color: #FFFFFF;
+	width: 180px;
+	height: 30px;
+}
+
+.vehicle-box select{
+	display: unset;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.vehicle-box input[type=checkbox]{
+	width: 20px;
+	height: 20px;
+	margin-top: 0;
+}
+
+.open-box{
+	justify-content: center !important;
+}
+
+.open-box label{
+	margin-bottom: 0;
+	margin-left: 25px;
+}
+
+.vehicle-box .form-group{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 130px;
+}

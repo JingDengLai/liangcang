@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="context-path" th:content="@{/}" />
+    <base th:href="@{/}" />
+    <title>巡更日志管理</title>
+    <link type="image/x-icon" rel="icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../components/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../components/bootstrap-table/bootstrap-table.min.css" />
+    <link rel="stylesheet" type="text/css" href="../components/datetimepicker/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/platform.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/popup.css" />
+	<link rel="stylesheet" type="text/css" href="../css/safe/patrolPoint.css" />
+</head>
+<body>
+    <header>
+        <div th:replace="header :: header"></div>
+        <div class="head-nav">
+            <div class="head-im">
+                <a th:href="@{/}">首页</a>
+                <a href="javascript:void(0)">安全防范系统</a>
+                <a href="javascript:void(0)">智能巡更系统</a>
+                <a href="javascript:void(0)">巡更日志管理</a>
+            </div>
+        </div>
+    </header>
+    <div class="content-wrap">
+   		<div class="sms-table flow-table user-table">
+   			<div id="toolbar" class="toolbar toolbar1">
+   				<div class="sms-btn-group sms-btn-common">
+   					<form name="searchform" id="searchform">
+   						<div style="display: inline-block;" class="form-group">
+   							<label style="width: unset;">编号</label> <input type="text" name="name" id="name" placeholder="请输入名称进行查询" style="width: 240px;" />
+   						</div>
+   						<div class="sms-btn-group">
+   							<button type="button" class="btn btn-search" id="submit_search">
+   								<i class="icon-search"></i>查询
+   							</button>
+   							<button type="button" class="btn btn-reset" id="submit_reset"><i class="icon-reset"></i>重置</button>
+   						</div>
+   					</form>
+   				</div>
+   				<form class="form-inline" style="position: relative;">
+   					<div class="btn btn-primary btn-lg flow-add" id="add">
+   						<img src="../images/icon/add.png" />&nbsp; <span>查看</span>
+   					</div>
+   					<span class="separator">|</span>
+   					<div class="btn btn-primary btn-lg flow-add" id="edit">
+   						<img src="../images/icon/edit.png" />&nbsp; <span>导出</span>
+   					</div>
+   				</form>
+   			</div>
+   			<table id="table" class="table-striped"></table>
+   		</div>
+   	</div>
+	
+	<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+	     data-backdrop='static' data-keyboard="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="addModalLabel"></h4>
+	            </div>
+	            <div class="modal-body">
+	                全选：<input type="checkbox" id="all"/>
+	                <form id="dataForm" class="updateform">
+	                    <input type="hidden" id="ledId"/>
+	                    <div class="ibox-content">
+	                        <table id="ledSetTable" style="margin-top: 10px;">
+	                        </table>
+	                    </div>
+	                    <div class="btn-footer">
+	                        <button type="button" class="btn btn-primary btn_add btn-common" id="btn_add">保存</button>
+	                        <button type="button" class="btn btn-default btn-common" data-dismiss="modal">取消</button>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	
+    <script type="text/javascript" src="../components/jquery.min.js"></script>
+    <script type="text/javascript" src="../components/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../components/bootstrap-table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="../components/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+   	<script type="text/javascript" src="../components/jquery-ui.js"></script>
+	<script type="text/javascript" src="../js/safe/test.js"></script>
+</body>
+
+</html>

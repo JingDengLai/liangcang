@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="renderer" content="webkit" />
+<meta name="context-path" th:content="@{/}" />
+<base th:href="@{/}" />
+<title>智慧粮食管理平台</title>
+<link type="image/x-icon" rel="icon" th:href="@{/images/favicon.ico}" />
+<link rel="stylesheet" type="text/css" th:href="@{/components/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/components/bootstrap-table/bootstrap-table.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/components/datetimepicker/bootstrap-datetimepicker.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/platform.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/progress.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/popup.css}" />
+</head>
+<body>
+	<header th:if="${isshow!='1'}" class="header">
+		<div th:replace="header :: header"></div>
+		<div class="head-nav">
+			<div class="head-im">
+				<a th:href="@{/}">首页</a>  <a th:href="@{/intelligentWarehouse}">智能仓储系统</a>  <a th:href="@{/grainMeasurementSystem}">综合粮情测控系统</a>  <a href="javascript:void(0)" class="current">水分监测</a>
+			</div>
+		</div>
+	</header>
+	<div class="content-wrap" th:style="${isshow=='1'?'padding-top:0rem':'padding-top:5.3rem'}">
+		<div class="content-head">
+			<div class="content-head-top">
+				<a th:if="${isshow!='1' &amp;&amp;  #lists.contains(session.user.menuCodes, 'SF_SSSJJC')}" th:href="@{water/main}" target="_self" id="role">实时数据监测</a>
+				<a th:if="${isshow=='1' &amp;&amp;  #lists.contains(session.user.menuCodes, 'SF_SSSJJC')}" th:href="@{water/main(isshow=${isshow},groupId=${groupId},warehouseId=${warehouseId})}">实时数据监测</a>
+				<a th:if="${#lists.contains(session.user.menuCodes, 'SF_LSSJJC')}" th:href="@{water/history}" target="_self" id="user" class="active">历史数据查询</a>
+			</div>
+
+		</div>
+		<div class="table-wrapper" th:style="${isshow=='1'?'padding-top:2.3rem':'padding-top:7.6rem'}">
+			<div class="sms-table flow-table user-table">
+				<div id="toolbar" class="toolbar toolbar1">
+					<form name="searchform" id="searchform">
+						<div class="sms-btn-group sms-btn-common">
+							<div style="display: inline-block;" class="form-group">
+								<label>库点：</label> <select class="inorout" name="groupId" id="groupId" style="width: 10rem" onchange="getEquipWarehouseByGroupId('EQUIPMENT_DETECTION','2')">
+									<option th:selected="${groupId==type.groupId}" th:each="type : ${warehouseGroupList}" th:value="${type.groupId}" th:text="${type.name}"></option>
+								</select> <label>仓间号：</label> <select class="inorout" name="warehouseId" id="warehouseId" style="width: 10rem">
+									<option value="">全部</option>
+									<option th:selected="${warehouseId==wareHouses.warehouseId}" th:each="wareHouses : ${warehouseList}" th:value="${wareHouses.warehouseId}" th:text="${wareHouses.code}"></option>
+								</select> <label>起始时间：</label> <input type="text" id="beginDate" name="beginDate" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'endDate\')}'})" /> <label>结束时间：</label> <input type="text" id="endDate"
+									name="endDate" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'beginDate\')}'})" />
+							</div>
+							<button type="button" class="btn btn-search" id="submit_search">
+								<i class="icon-search"></i>查询
+							</button>
+							<button type="button" class="btn btn-reset" id="submit_reset">重置</button>
+						</div>
+					</form>
+				</div>
+				<table id="table" class="table-striped" data-page-size="10" data-page-list="[5,8,10]">
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" th:src="@{/components/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/components/bootstrap/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/components/bootstrap-table/bootstrap-table.min.js}"></script>
+	<script type="text/javascript" th:src="@{/components/bootstrap-table/bootstrap-table-zh-CN.min.js}"></script>
+	<script type="text/javascript" th:src="@{/components/datepicker/WdatePicker.js}"></script>
+	<script type="text/javascript" th:src="@{/components/echarts.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/common.js}"></script>
+	<script th:src="@{/components/layPage/laypage.js}" type="text/javascript"></script>
+	<script type="text/javascript" th:src="@{/js/intelligentWarehouse/grainMeasurementControlSystem/water_history.js}" charset="utf-8"></script>
+
+	<script>
+		
+	</script>
+</body>
+</html>

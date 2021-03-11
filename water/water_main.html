@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="renderer" content="webkit" />
+<meta name="context-path" th:content="@{/}" />
+<base th:href="@{/}" />
+<title>智慧粮食管理平台</title>
+<link type="image/x-icon" rel="icon" th:href="@{/images/favicon.ico}" />
+<link rel="stylesheet" type="text/css" th:href="@{/components/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/components/bootstrap-table/bootstrap-table.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/components/datetimepicker/bootstrap-datetimepicker.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/platform.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/progress.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/popup.css}" />
+</head>
+
+<body>
+	<header class="header">
+		<div th:replace="header :: header"></div>
+		<div class="head-nav">
+			<div class="head-im">
+				<a th:href="@{/}">首页</a>  <a th:href="@{/intelligentWarehouse}">智能仓储系统</a>  <a th:href="@{/grainMeasurementSystem}">综合粮情测控系统</a>  <a th:href="@{/water}" class="current">水分监测</a>
+			</div>
+		</div>
+	</header>
+	<div class="content-wrap">
+		<div class="wrap-top">
+			<div class="wrap-group form-group">
+				<label>库点：&nbsp;</label> <select class="inorout" name="groupId" id="groupId" onchange="initChart()">
+					<option th:each="group : ${group}" th:value="${group.groupId}" th:text="${group.name}"></option>
+				</select>
+				<!-- <input type="hidden" th:value="@{${wsdjc.location}}" id="location" />  -->
+			</div>
+			<span class="allchecked" style="vertical-align: middle; margin-right: 1rem;"><input type="checkbox" name="checkAll" value="" id="checkAll" /><label for="checkAll">全选</label></span>
+			<button type="button" class="btn btn-search" id="collectBtn">采集</button>
+			<!-- <button type="button" class="btn btn-search">打印</button> -->
+			<span th:if="${collectStatus} != 0" class="collecting" > 正在采集... <img class="collecting-slider" th:src="@{/images/collect-slider.png}" />
+				<div class="collecting-info" style="width: 200px" id="collect_info">
+					<h3>采集检测</h3>
+					
+				</div>
+			</span>
+		</div>
+		<div class="retrospect-content"></div>
+	</div>
+
+	<script type="text/javascript" th:src="@{/components/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/components/bootstrap/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/components/bootstrap-table/bootstrap-table.min.js}"></script>
+	<script type="text/javascript" th:src="@{/components/bootstrap-table/bootstrap-table-zh-CN.min.js}"></script>
+	<script type="text/javascript" th:src="@{/components/datepicker/WdatePicker.js}"></script>
+	<script type="text/javascript" th:src="@{/components/echarts.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/common.js}"></script>
+	<script type="text/javascript" th:src="@{/js/intelligentWarehouse/grainMeasurementControlSystem/water_main.js}" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+
+</html>

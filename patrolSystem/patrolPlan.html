@@ -73,9 +73,9 @@
 					<h4 class="modal-title" id="addModalLabel"></h4>
 				</div>
 				<div class="modal-body wicket_body plan-modal">
-					<div class="plan">
-						<div class="form-box plan-1">
-							<form id="dataForm" class="updateform">
+					<form id="dataForm" class="">
+						<div class="plan">
+							<div class="form-box plan-1">
 								<input type="hidden" id="operation" /> 
 								<input type="hidden" id="id" name="id" />
 								<div class="clearfix">
@@ -95,141 +95,235 @@
 										<label for="code" class="control-label">计划状态:</label> <input type="text" class="form-control" id="code" name="code"/>
 									</div>
 								</div>
-							</form>
-						</div>
+							</div>
 										
-						<div class="plan-2">
-							<div class="form-label plan-2-1">
-								巡检员
-								<a href="#" id="selectPoint">添加</a>
+							<div class="plan-2">
+								<div class="form-label plan-2-1">
+									巡检员
+									<a href="javascript:void(0);" id="addstaff">添加</a>
+								</div>
+								<div class="plan-2-2">
+									<table class="table table-bordered">
+									  <thead>
+										<tr>
+										  <th scope="col">人员编号</th>
+										  <th scope="col">人员姓名</th>
+										  <th scope="col">操作</th>
+										</tr>
+									  </thead>
+									  <tbody>
+										<tr>
+										  <th scope="row">1</th>
+										  <td>Mark</td>
+										  <td>删除</td>
+										</tr>
+										<tr>
+										  <th scope="row">2</th>
+										  <td>Jacob</td>
+										  <td>删除</td>
+										</tr>
+										<tr>
+										  <th scope="row">3</th>
+										  <td>@twitter</td>
+										  <td>删除</td>
+										</tr>
+									  </tbody>
+									</table>
+								</div>
 							</div>
-							<div class="plan-2-2">
-								<table class="table table-bordered">
-								  <thead>
-								    <tr>
-								      <th scope="col">人员编号</th>
-								      <th scope="col">人员姓名</th>
-								      <th scope="col">操作</th>
-								    </tr>
-								  </thead>
-								  <tbody>
-								    <tr>
-								      <th scope="row">1</th>
-								      <td>Mark</td>
-								      <td>删除</td>
-								    </tr>
-								    <tr>
-								      <th scope="row">2</th>
-								      <td>Jacob</td>
-								      <td>删除</td>
-								    </tr>
-								    <tr>
-								      <th scope="row">3</th>
-								      <td>@twitter</td>
-									  <td>删除</td>
-								    </tr>
-								  </tbody>
-								</table>
+							<div class="plan-3">
+								<div class="form-label plan-3-1">
+									管理员
+									<a href="javascript:void(0);" id="addManager">添加</a>
+								</div>
+								<div class="plan-3-2">
+									<table class="table table-bordered">
+									  <thead>
+										<tr>
+										  <th scope="col">人员编号</th>
+										  <th scope="col">人员姓名</th>
+										  <th scope="col">操作</th>
+										</tr>
+									  </thead>
+									  <tbody>
+										<tr>
+										  <th scope="row">1</th>
+										  <td>Mark</td>
+										  <td>删除</td>
+										</tr>
+										<tr>
+										  <th scope="row">2</th>
+										  <td>Jacob</td>
+										  <td>删除</td>
+										</tr>
+										<tr>
+										  <th scope="row">3</th>
+										  <td>@twitter</td>
+										  <td>删除</td>
+										</tr>
+									  </tbody>
+									</table>
+								</div>
 							</div>
 						</div>
-						<div class="plan-3">
-							<div class="form-label plan-3-1">
-								管理员
-								<a href="#" id="selectPoint">添加</a>
-							</div>
-							<div class="plan-3-2">
-								<table class="table table-bordered">
-								  <thead>
-								    <tr>
-								      <th scope="col">人员编号</th>
-								      <th scope="col">人员姓名</th>
-								      <th scope="col">操作</th>
-								    </tr>
-								  </thead>
-								  <tbody>
-								    <tr>
-								      <th scope="row">1</th>
-								      <td>Mark</td>
-								      <td>删除</td>
-								    </tr>
-								    <tr>
-								      <th scope="row">2</th>
-								      <td>Jacob</td>
-								      <td>删除</td>
-								    </tr>
-								    <tr>
-								      <th scope="row">3</th>
-								      <td>@twitter</td>
-									  <td>删除</td>
-								    </tr>
-								  </tbody>
-								</table>
-							</div>
-						</div>
-					</div>
 				
-					<div class="plan-cycle">
-						<div class="plan-cycle-1">设置有效期、执行周期</div>
-						<div class="plan-cycle-2">
-							<div class="plan-cycle-2-1 form-group">
-								<div class="startTime">
-									<label>开始日期</label> <input name="beginDate" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
+						<div class="plan-cycle">
+							<div class="plan-cycle-1">设置有效期、执行周期</div>
+							<div class="plan-cycle-2">
+								<div class="plan-cycle-2-1 form-group">
+									<div class="startTime">
+										<label>开始日期</label> <input name="beginDate" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
+									</div>
+									<div class="endTime">
+										<label>结束日期</label><input name="endDate" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
+									</div>
 								</div>
-								<div class="endTime">
-									<label>结束日期</label><input name="endDate" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
-								</div>
-							</div>
-							<div class="plan-cycle-2-2">
-								<div class="plan-cycle-2-2-1">
-									<span class="day active">每天</span>
-									<span class="week">每周</span>
-									<span class="month">每月</span>
-									<span class="custom">自定义</span>
-								</div>
-								<div class="plan-cycle-2-2-2">
-									<div class="day-content form-group">
+								<div class="plan-cycle-2-2">
+									<div class="plan-cycle-2-2-1">
+										<span class="day active" data-box="day">每天</span>
+										<span class="week" data-box="week">每周</span>
+										<span class="month" data-box="month">每月</span>
+										<span class="custom" data-box="custom">自定义</span>
+									</div>
+									<div class="plan-cycle-2-2-2">
+										<div class="day-content">
+											<!-- <div class="form-group day-box">
+												<div class="day-content-1">
+													<label>开始时间</label><input name="day-beginTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+												</div>
+												<div class="day-content-2">
+													<label>结束时间</label><input name="day-endTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+												</div>
+											</div> -->
+										</div>
+										<div class="week-content" style="display: none;">
+											<div class="week-content-1">
+												<div class="title">日期</div>
+												<div class="list">
+													<span>周一</span>
+													<span>周二</span>
+													<span>周三</span>
+													<span>周四</span>
+													<span>周五</span>
+													<span>周六</span>
+												</div>
+											</div>
+											<!-- <div class="week-content-2 form-group">
+												<div class="day-content-1">
+													<label>开始时间</label><input name="day-beginTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+												</div>
+												<div class="day-content-2">
+													<label>结束时间</label><input name="day-endTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+												</div>
+											</div> -->
+										</div>
+										<div class="month-content" style="display: none;">
+											<div class="month-content-1">
+												<div class="title">日期</div>
+												<div class="list" id="month">
+													<script>
+														for (let i = 1; i <= 31; i++) {
+															document.write("<span>"+i+"</span>")
+														}
+													</script>
+												</div>
+											</div>
+											<!-- <div class="month-content-2 form-group">
+												<div class="day-content-1">
+													<label>开始时间</label><input name="day-beginTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+												</div>
+												<div class="day-content-2">
+													<label>结束时间</label><input name="day-endTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+												</div>
+											</div> -->
+										</div>
+										<div class="custom-content" style="display: none;">
+											<div class="custom-content-1 form-group">
+												<div class="day-content-1">
+													<label>连续天数</label><input name="day-beginTime" type="number" class="form_datetime Wdate" />
+												</div>
+												<div class="day-content-2">
+													<label>间隔天数</label><input name="day-endTime" type="number" class="form_datetime Wdate" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="time-box form-group">
 										<div class="day-content-1">
 											<label>开始时间</label><input name="day-beginTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
 										</div>
 										<div class="day-content-2">
-											<label>结束时间</label><input name="day-endTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
+											<label>结束时间</label> 
+											<select>
+												<option value ="0">当日</option>
+												<option value ="1">次日</option>
+											</select> 
+											<input name="day-endTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
 										</div>
-									</div>
-									<div class="week-content form-group">
-										<div class="week-content-1">
-											<div class="title">日期</div>
-											<div class="list">
-												<span>周一</span>
-												<span>周二</span>
-												<span>周三</span>
-												<span>周四</span>
-												<span>周五</span>
-												<span>周六</span>
-											</div>
-										</div>
-										<div class="week-content-2">
-											<div class="day-content-1">
-												<label>开始时间</label><input name="day-beginTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
-											</div>
-											<div class="day-content-2">
-												<label>结束时间</label><input name="day-endTime" type="text" class="form_datetime Wdate" onFocus="WdatePicker({dateFmt:'HH:mm'})" />
-											</div>
-										</div>
-									</div>
-									<div class="month-content">
-										
-									</div>
-									<div class="custom-content">
-										
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="btn-footer">
-						<button type="submit" class="btn btn-primary btn_add btn-common" id="btn_add">保存</button>
-						<button type="button" class="btn btn-default btn-common" data-dismiss="modal">取消</button>
-					</div>
+						<div class="btn-footer">
+							<button type="submit" class="btn btn-primary btn_add btn-common" id="btn_add">保存</button>
+							<button type="button" class="btn btn-default btn-common" data-dismiss="modal">取消</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 添加管理人员等 -->
+	<div class="modal fade" id="addPeople" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop='static' data-keyboard="true">
+		<div class="modal-dialog wid_f wid_big addPeople-dialog">
+			<div class="modal-content wicket wicket_big">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="peopleLabel"></h4>
+				</div>
+				<div class="modal-body wicket_body plan-modal">
+					<form id="people-form">
+						<div class="people-content">
+							<div class="people-content-1">
+								<form name="people-content-searchform" id="people-content-searchform">
+									<div style="display: inline-block;" class="form-group">
+										<label style="width: unset;">巡更计划名称</label> <input type="text" name="name" placeholder="请输入名称进行查询" style="width: 240px;" />
+									</div>
+									<div class="sms-btn-group">
+										<button type="button" class="btn btn-search" id="submit_search">
+											<i class="icon-search"></i>查询
+										</button>
+										<button type="button" class="btn btn-reset" id="submit_reset"><i class="icon-reset"></i>重置</button>
+									</div>
+								</form>
+							</div>
+							<div class="people-content-2">
+								<div class="people-content-table">
+									<table>
+										<tr>
+											<th><input type="checkbox" name="allCheckBox"></th>
+										    <th>人员编号</th>
+										    <th>人员姓名</th>
+										    <th>联系电话</th>
+										</tr>
+										<tr>
+											<td><input type="checkbox"></td>
+											<td>R2058</td>
+											<td>哈哈哈</td>
+											<td>3666666</td>
+										</th>
+									</table>
+								</div>
+							</div>
+							<div class="people-content-3">
+								<div class="btn-footer">
+									<button type="button" class="btn btn-primary btn_add btn-common" id="">保存</button>
+									<button type="button" class="btn btn-default btn-common" data-dismiss="modal">取消</button>
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

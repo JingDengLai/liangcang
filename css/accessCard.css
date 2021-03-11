@@ -1,0 +1,39 @@
+.access-box{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.access-box .form-group label{
+	width: 120px;
+}
+
+.access-box .form-group{
+	width: 100%;
+	text-align: center;
+	padding: 5px 0;
+}
+
+.access-box .form-group input{
+	width: 300px;
+	margin-left: 20px;
+	background-color: #FFFFFF !important;
+	border: 1px solid #DCDCDC;
+}
+
+.button_con{
+	background-color: #FFFFFF;
+	margin-top: 30px;
+}
+
+#workerTable thead th .th-inner,tbody tr td{
+	padding: 4px;
+	font-size: 12px;
+	text-align: center;
+}
+
+#workerTable input{
+	width: 15px;
+	height: 15px;
+}

@@ -1,10 +1,10 @@
-$(function () {
-    initTable();
+$(function(){
+	initTable();
 	// 查询按钮事件
 	$('#submit_search').click(function() {
 		var name = $.trim($('#searchform #name').val());
 		$('#searchform #name').val(name);
-		$('#table').bootstrapTable('refresh', {url : 'basic/variety/varieties'});
+		$('#table').bootstrapTable('refresh', {url : 'http://10.125.58.171:8080/api/getCarList'});
 	});
 	// 重置按钮
 	$("#submit_reset").click(function() {
@@ -14,21 +14,16 @@ $(function () {
 	
 	// 添加按钮
 	$("#add").click(function() {
-		$("#code").removeAttr("readonly"); 
-		$("#code").removeAttr("unselectable"); 
-		$("#code").css({"cursor": ""});
 		$("#dataForm").reset();
-		$("#addModalLabel").html("新增巡检点");
+		$("#addModalLabel").html("添加车辆信息");
 		$("#operation").val("add");
 		$('#addModal').modal('show');
-		// 添加leaflet地图
-		setTimeout(function(){
-			initMap();
-		},500)
 	});
 	
 	// 编辑按钮
-	$('#edit').click(function(){
+	$("#edit").click(function() {
+		$("#dataForm").reset();
+		$("#addModalLabel").html("修改车辆信息");
 		var selections = $("#table").bootstrapTable("getSelections");
 		console.log(selections)
 		if (selections.length == 0) {
@@ -40,12 +35,25 @@ $(function () {
 			$("#dataForm").reset();
 			return;
 		}
-		
 		$("#operation").val("edit");
 		$.each(selections, function(i, o) {
 			getVarietyDetail(o.id);
 		})
+		$('#addModal').modal('show');
 	});
+	
+	// 开启时间设置
+	$('#openSetting').change(function(){
+		if ($(this).prop('checked')){
+			$('#startTime').prop('disabled',false)
+			$('#endTime').prop('disabled', false);
+		}else{
+			$('#startTime').prop('disabled', true);
+			$('#startTime').val('');
+			$('#endTime').prop('disabled', true);
+			$('#endTime').val('');
+		}
+	})
 	
 	// 删除
 	$('#com_delete').click(function() {
@@ -57,20 +65,20 @@ $(function () {
 		}
 	});
 	
+	
 	$('#addModal').on('hide.bs.modal', function() {
 		$("#addModal form").each(function() {
 			$(this).reset();
 		});
 	});
 	
-	// 新增保存、编辑保存
 	addOreditVariety();
-	
-});
+})
+
 
 function initTable() {
     $('#table').bootstrapTable({
-        url: '../js/safe/data1.json',
+        url: 'http://10.125.54.60:8080/api/getCarList',
         method: 'get',
         columns: [ {
             title: '全选',
@@ -78,77 +86,57 @@ function initTable() {
             checkbox: true
         }, {
             field: 'code',
-            title: '编号'
+            title: '序号'
         }, {
-            field: 'name',
-            title: '巡检点名称'
-        }, {
-            field: 'equip',
-            title: '设备ID'
+            field: 'carCode',
+            title: '车牌号码'
         },{
-            field: 'desc',
-            title: '说明'
-        }],
-		responseHandler: function (res) {
-			return {
-				"rows":eval(res.data.rows),
-				"total": res.total
-			} 
-		},
+			field: 'listAttr',
+			title: '名单属性'
+		},{
+			field: 'carType',
+			title: '车牌类型'
+		},{
+			field: 'carColor',
+			title: '车牌颜色'
+		},{
+			field: 'startTime',
+			title: '有效开始期'
+		},{
+			field: 'endTime',
+			title: '有效结束期'
+		}],
+		dataField:"data"
     })
 }
-
 
 // 新增OR修改
 function addOreditVariety() {
 	$('#dataForm').bootstrapValidator({
 		fields : {
-			name : {
+			carCode : {
 				validators : {
 					notEmpty : {
 						 message: '不能为空'
-					},
-					stringLength: {
-	                     min: 1,
-	                     max: 32,
-	                     message: '品种名称长度必须在1到32位之间'
-	                 }
+					}
 				}
 			},
-			desc : {
+			cardCode : {
 				validators : {
 					notEmpty : {
 						message: '不能为空'
-					},
-					stringLength: {
-	                     min: 1,
-	                     max: 5,
-	                     message: '品种编码长度必须在1到5位之间'
-	                 }
-				}
-			},
-			equip : {
-				validators : {
-					notEmpty : {
-						message: '不能为空'
-					},
-					stringLength: {
-	                     min: 1,
-	                     max: 2,
-	                     message: '优先级长度必须在1到2位之间'
-	                 }
+					}
 				}
 			}
 		}
 	}).on('success.form.bv', function(e) {
-		$('#dataForm').bootstrapValidator('disableSubmitButtons',false)
+		$('#dataForm').bootstrapValidator('disableSubmitButtons',false)		
 		e.preventDefault();
-
 		var operation = $("#operation").val();
 		if ("add" == operation) {
 			$.ajax({
 				type : 'POST',
-				url : "basic/variety/varieties",
+				url : "http://10.125.58.171:8080/api/addCar",
 				data : $('#dataForm').serializeJson()
 			}).done(function(data) {
 				$('#addModal').modal('hide');
@@ -156,13 +144,12 @@ function addOreditVariety() {
 			}).fail(function(err) {
 				alert("添加失败!","warning");
 			}).always(function() {
-				$("#dataForm").reset();
 				$('#table').bootstrapTable('refresh');
 			});
 		} else if ("edit" == operation) {
 			$.ajax({
 				type : 'PUT',
-				url : "basic/variety/varieties",
+				url : "http://10.125.58.171:8080/api/addCar",
 				data : $('#dataForm').serializeJson()
 			}).done(function(data) {
 				$('#addModal').modal('hide');
@@ -170,7 +157,6 @@ function addOreditVariety() {
 			}).fail(function(err) {
 				alert("修改失败!","warning");
 			}).always(function() {
-				$("#dataForm").reset();
 				$('#table').bootstrapTable('refresh');
 			});
 		} else {
@@ -180,71 +166,63 @@ function addOreditVariety() {
 	});
 }
 
+
 // 根据id获取详情
 function getVarietyDetail(id) {
 	$.ajax({
-		url : 'basic/variety/varieties/' + id + '',
+		url : 'http://10.125.58.171:8080/api/getCarList/' + id + '',
 		type : 'GET'
 	}).done(function(data) {
-		if (null != data.variety) {
-			var variety = data.variety;
+		if (null != data.data) {
+			var variety = data.data;
 			setEidtPage(variety);
 		}
 	}).fail(function(err) {
-		alert("品种信息获取失败!","warning");
+		alert("车辆信息获取失败!","warning");
 	});
 }
 
 // 组织编辑页面
 function setEidtPage(variety) {
-	$("#dataForm #name").val(variety.name);
-	$("#dataForm #desc").val(variety.desc);
-	$("#equip").val(variety.equipID);
-	$("#referImg").val(variety.referImg);
-	$('#addModal').modal('show');
+	$('#dataForm #carCode').val(variety.carCode);
+	$('#dataForm #listAttr').val(variety.listAttr);
+	$('#dataForm #carType').val(variety.carType);
+	$('#dataForm #carColor').val(variety.carColor);
+	$('#dataForm #cardCode').val(variety.cardCode);
+	if (variety.openSetting){
+		$('#dataForm #openSetting').prop('checked', true);
+		$('#dataForm #startTime').val(variety.startTime);
+		$('#dataForm #endTime').val(variety.endTime);
+	}
 }
 
 
 // 删除
 function deleVariety() {
 	var selections = $("#table").bootstrapTable("getSelections");
-    $.each(selections,function(i,o){
-        deleteById(o.id);
-    });
-	// 提示成功
-	$('#table').bootstrapTable('refresh', {url : 'basic/variety/varieties'});
-	alert("删除成功!");
-	$("#dataForm").reset();
-}
-function deleteById(id) {
-	if (id == "") {
-		return;
-	}
+	var ids=[];
+    // $.each(selections,function(i,o){
+    //     deleteById(o.id);
+    // });
+	$.each(selections,function(i,o){
+		ids.push(o.id)
+	});
+
 	$.ajax({
-		url : 'basic/variety/varieties/' + id,
+		url : 'inspect/point/' + ids,
 		type : 'DELETE'
-	}).done(function(data) {
-		if (data.flag != 1){
-			if (data.flag == 2){
-				alert("品种已被绑定使用，无法删除!","warning");
-			}else{
-				alert("删除失败!","warning");
-			}
+	}).done(function(res) {
+		if (res.code == 0){
+			alert("删除成功");
 		}
 	}).fail(function(err) {
-		alert("删除失败!","warning");
+		alert("删除失败","warning");
 	}).always(function() {
 		$('#table').bootstrapTable('refresh');
-		$("#dataForm").reset();
 	});
+
+	// 提示成功
+	$('#table').bootstrapTable('refresh', {url : 'api/getCarList'});
+	$("#dataForm").reset();
 }
-
-// function operateFormatter(value, row, index) {//赋予的参数
-//     return [
-//         '<button class="btn activ" id="openfile">编辑</button>',
-//         '<button class="btn activ" id="openfile">删除</button>'
-//     ].join('');
-// }
-
-
 

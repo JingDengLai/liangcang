@@ -1,4 +1,8 @@
 
+label{
+	color: #000000 !important;
+}
+
 .modal-dialog{
 	width: 1200px;
 }
@@ -6,7 +10,7 @@
 .modal-dialog .modal-content .modal-body{
 	max-height: 800px;
 	display: flex;
-	justify-content: space-around;
+	/* justify-content: space-around; */
 }
 
 .clearfix{
@@ -27,8 +31,8 @@
 
 
 #mapid{
-	width: 700px;
-	height: 700px;
+	width: 1100px;
+	height: 560px;
 	/* background-color: #0000FF; */
 }
 
@@ -38,6 +42,8 @@
 	font-weight: bold;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
 }
 
 .form-label a{
@@ -51,6 +57,8 @@
 
 .form-box{
 	width: 435px;
+	padding: 0 10px;
+	box-sizing: border-box;
 }
 
 .point-list-box{
@@ -76,10 +84,10 @@
 	box-sizing: border-box;
 }
 
-.plan-2-2,.plan-3-2{
+/* .plan-2-2,.plan-3-2{
 	margin-top: 20px;
 }
-
+ */
 .plan-cycle{
 	background-color: rgb(206,219,222);
 }
@@ -104,7 +112,7 @@
 	padding: 20px 0;
 }
 
-.plan-cycle-2-1>div input, .plan-cycle-2-2-2>div input{
+.plan-cycle-2-1>div input, .plan-cycle-2-2-2>div input, .time-box>div input{
 	margin-left: 20px;
 	background-color: #FFFFFF;
 	border-radius: 4px;
@@ -138,7 +146,7 @@
 	border-top: 2px solid #000000;
 }
 
-.day-content,.week-content-2{
+.time-box ,.custom-content-1{
 	display: flex;
 }
 
@@ -146,7 +154,29 @@
 	color: #000000;
 }
 
-.day-content>div,.week-content-2>div{
+.addPeople-dialog{
+	width: 1000px;
+}
+
+.people-content-table table, .people-content-table table tr th, .people-content-table table tr td { border:1px solid #DCDCDC; }
+.people-content-table table {text-align: center; border-collapse: collapse; padding:2px;}
+
+.people-content-table table{
+	width: 100%;
+}
+
+
+.people-content-table table th{
+	text-align: center;
+}
+
+.people-content-table table input{
+	width: 20px;
+	height: 20px;
+}
+
+
+.time-box>div,.custom-content-1>div{
 	margin: 0 40px;
 	padding: 10px 0;
 }
@@ -159,7 +189,7 @@
 	border-radius: 5px;
 }
 
-.week-content-1 .title{
+.week-content-1 .title, .month-content-1 .title{
 	font-size: 16px;
 	font-weight: bold;
 	margin-left: 20px;
@@ -177,4 +207,77 @@
 	border: 1px solid #DCDCDC;
 	border-radius: 5px;
 	margin-left: 50px;
+	cursor: pointer;
+}
+
+.month-content-1{
+	display: flex;
+	align-items: flex-start;
+	padding: 10px 20px;
+	border: 1px dashed #DCDCDC;
+	border-radius: 5px;
+}
+
+.month-content-1 .title{
+	width: 80px;
+}
+
+.month-content-1 .list{
+	display: flex;
+	flex-wrap: wrap;
+	width: 500px;
+}
+
+.month-content-1 .list span{
+	display: block;
+	width: 80px;
+	text-align: center;
+	line-height: 30px;
+	border: 1px solid #DCDCDC;
+	cursor: pointer;
+}
+
+.custom-content-1{
+	border: 1px dashed #DCDCDC;
+}
+	
+.list span.active{
+	background-color: rgb(245,245,245);
+}
+
+.time-box select{
+	border: 1px solid #dcdcdc !important;
+	border-radius: 4px;
+}
+
+
+/* route */
+.route-modal-body{
+	display: unset !important;
+}
+
+.route-form-box{
+	width: 100%;
+}
+.route-form-1{
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	align-items: flex-start;
+}
+
+.route-form-1-1, .route-form-1-2{
+	width: 400px;
+}
+
+.route-form-1-2{
+	margin-top: 0;
+}
+
+.form-label{
+	align-items: flex-start;
+}
+
+.map-box{
+	margin: 0 auto;
 }

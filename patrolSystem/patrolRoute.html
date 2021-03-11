@@ -73,71 +73,55 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title" id="addModalLabel"></h4>
 				</div>
-				<div class="modal-body wicket_body">
-					<div class="form-box">
-						<form id="dataForm" class="updateform">
+				<div class="modal-body wicket_body route-modal-body">
+					<form id="dataForm" class="updateform route-form">
+						<div class="route-form-box">
 							<input type="hidden" id="operation" /> 
 							<input type="hidden" id="id" name="id" />
-							<div class="clearfix">
-								<div class="form-label">
-									编辑路线
+							<div class="route-form-1">
+								<div class="clearfix route-form-1-1">
+									<div class="form-label">
+										编辑路线
+									</div>
+									<div class="form-group">
+										<label for="name" class="control-label">路线名称:</label> <input type="text" class="form-control" id="name" name="name"/>
+									</div>
+									<div class="form-group">
+										<label for="code" class="control-label">路线说明:</label> <input type="text" class="form-control" id="code" name="code"/>
+									</div>
 								</div>
-								<div class="form-group">
-									<label for="name" class="control-label">路线名称:</label> <input type="text" class="form-control" id="name" name="name"/>
-								</div>
-								<div class="form-group">
-									<label for="code" class="control-label">路线说明:</label> <input type="text" class="form-control" id="code" name="code"/>
+								
+								<div class="point-list-box route-form-1-2">
+									<div class="form-label">
+										巡检点列表
+										<a href="#" id="selectPoint">选择巡检点</a>
+									</div>
+									<div class="point-list">
+										<table class="table table-bordered">
+										  <thead>
+										    <tr>
+										      <th scope="col">序号</th>
+										      <th scope="col">编号</th>
+										      <th scope="col">名称</th>
+										      <th scope="col">操作</th>
+										    </tr>
+										  </thead>
+										  <tbody>
+										    
+										  </tbody>
+										</table>
+									</div>
 								</div>
 							</div>
+						</div>
+						<div class="map-box" id="mapid">
 							
-							<div class="point-list-box">
-								<div class="form-label">
-									巡检点列表
-									<a href="#" id="selectPoint">选择巡检点</a>
-								</div>
-								<div class="point-list">
-									<table class="table table-bordered">
-									  <thead>
-									    <tr>
-									      <th scope="col">序号</th>
-									      <th scope="col">编号</th>
-									      <th scope="col">名称</th>
-									      <th scope="col">操作</th>
-									    </tr>
-									  </thead>
-									  <tbody>
-									    <tr>
-									      <th scope="row">1</th>
-									      <td>Mark</td>
-									      <td>Otto</td>
-									      <td>删除</td>
-									    </tr>
-									    <tr>
-									      <th scope="row">2</th>
-									      <td>Jacob</td>
-									      <td>Thornton</td>
-									      <td>删除</td>
-									    </tr>
-									    <tr>
-									      <th scope="row">3</th>
-									      <td>Larry the Bird</td>
-									      <td>@twitter</td>
-										  <td>删除</td>
-									    </tr>
-									  </tbody>
-									</table>
-								</div>
-							</div>
-							
-							<div class="btn-footer">
-								<button type="submit" class="btn btn-primary btn_add btn-common" id="btn_add">保存</button>
-								<button type="button" class="btn btn-default btn-common" data-dismiss="modal">取消</button>
-							</div>
-						</form>
-					</div>
-					<div class="map-box" id="mapid">
-						
-					</div>
+						</div>
+						<div class="btn-footer">
+							<button type="submit" class="btn btn-primary btn_add btn-common" id="btn_add">保存</button>
+							<button type="button" class="btn btn-default btn-common" data-dismiss="modal">取消</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

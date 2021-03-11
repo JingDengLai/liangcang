@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="renderer" content="webkit" />
+<meta name="context-path" th:content="@{/}" />
+<base th:href="@{/}" />
+<title>智慧粮食管理平台</title>
+<link type="image/x-icon" rel="icon" href="../images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../components/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../components/bootstrap-table/bootstrap-table.min.css" />
+<link rel="stylesheet" type="text/css" href="../components/datetimepicker/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="../components/multiple-select/css/multiple-select.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../css/platform.css" />
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<link rel="stylesheet" type="text/css" href="../css/popup.css" />
+<link rel="stylesheet" type="text/css" href="../css/accessCard.css" />
+</head>
+<body>
+	<!--header-->
+	<header class="header">
+		<div th:replace="header :: header"></div>
+		<div class="head-nav">
+			<div class="head-im">
+				<a th:href="@{/}">首页</a>  
+				<a th:href="@{/grainBusiness}" class="current">粮库业务管理与共享平台</a> 
+				<a th:href="@{/oa}">协同办公</a>  
+				<a href="javascript:void(0)" class="current">人力资源管理</a>
+			</div>
+		</div>
+	</header>
+	<!--content-->
+	<div class="content-wrap">
+		<div class="table-wrapper">
+			<div class="sms-table flow-table user-table">
+				<div id="toolbar" class="toolbar toolbar1">
+					<div class="sms-btn-group manage_group sms-btn-common">
+						<form id="searchform" name="searchform">
+							<div style="display: inline-block;" class="form-group">
+								<label>所属部门：</label> <select class="inorout" name="departmentId">
+									<option value="">请选择</option>
+									<option th:each="department : ${departments}" th:value="${department.id}" th:text="${department.name}"></option>
+								</select>
+							</div>
+							<div style="display: inline-block;" class="form-group">
+								<label>姓名：</label> <input type="text" name="name" maxlength="32" autocomplete="off" />
+							</div>
+							<div style="display: inline-block;" class="form-group">
+								<label>卡号：</label> <input type="text" name="no" maxlength="32" autocomplete="off" />
+							</div>
+							<button type="button" id="search-submit-btn" class="btn btn-search">
+								<i class="icon-search"></i>查询
+							</button>
+							<button type="button" id="search-reset-btn" class="btn btn-reset">重置</button>
+						</form>
+					</div>
+					<form class="form-inline" style="position: relative;">
+						<div class="btn btn-primary btn-lg flow-add" data-toggle="modal" data-target="#addModal">
+							<img src="../images/icon/add.png" />&nbsp; <span>开卡</span>
+						</div>
+						<span class="separator">|</span>
+						<div class="flow-add" id="batch-delete-btn">
+							<img src="../images/icon/delete.png" />&nbsp; <span>销卡</span>
+						</div>
+						<span class="separator">|</span>
+						<div class="flow-add" id="export-btn">
+							<img src="../images/icon/export.png" />&nbsp; <span>导出</span>
+						</div>
+					</form>
+				</div>
+				<table id="table"></table>
+			</div>
+		</div>
+	</div>
+
+	<!-- 增加 -->
+	<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop='static' data-keyboard="true">
+		<div class="modal-dialog wid_f wid_big">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">添加人员</h4>
+				</div>
+				<div class="modal-body wicket_body">
+					<form id="addForm" class="updateform">
+						<div class="access-box">
+							<div class="form-group">
+								<label for="name">*姓名</label> <input class="form-control" type="text" name="name" id="name" placeholder="请点击选择" maxlength="8" autocomplete="off" />
+							</div>
+							<div class="form-group">
+								<label for="no">编号</label> <input class="form-control" type="text" name="no" id="no" maxlength="8" autocomplete="off" />
+							</div>
+							<div class="form-group">
+								<label for="departmentId">部门</label> <input class="form-control" type="text" name="departmentId" id="departmentId" maxlength="8" autocomplete="off" />
+							</div>
+							<div class="form-group">
+								<label for="position">岗位</label> <input class="form-control" type="text" name="position" id="position" maxlength="8" autocomplete="off" />
+							</div>
+							<div class="form-group">
+								<label for="cardNo">门禁卡</label> <input class="form-control" type="text" name="cardNo" id="cardNo" placeholder="请输入门禁卡号" autocomplete="off" />
+							</div>
+						</div>
+						<div class="modal-footer button_con">
+							<button type="submit" class="btn btn-primary btn_add">保存</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- 员工列表弹框 -->
+	<div class="modal fade" id="workerList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop='static' data-keyboard="true">
+		<div class="modal-dialog wid_f wid_big">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">员工列表</h4>
+				</div>
+				<div class="modal-body wicket_body">
+					<table id="workerTable"></table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript" src="../components/jquery.min.js"></script>
+	<script type="text/javascript" src="../components/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../components/multiple-select/js/multiple-select.js"></script>
+	<script type="text/javascript" src="../components/bootstrap-table/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="../components/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="../components/bootstrapValidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../components/bootstrapValidator/bootstrapValidator.language.zh_CN.js.js"></script>
+	<script type="text/javascript" src="../components/datepicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/safe/accessCard.js"></script>
+</body>
+</html>
