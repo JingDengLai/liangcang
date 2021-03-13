@@ -1,3 +1,8 @@
+.modal-body{
+	max-height: unset;
+	overflow-x: hidden;
+}
+
 .access-box{
 	display: flex;
 	flex-direction: column;
@@ -27,13 +32,34 @@
 	margin-top: 30px;
 }
 
-#workerTable thead th .th-inner,tbody tr td{
+
+.worker-search-box label{
+	color: #000000;
+}
+
+.worker-search-box input{
+	background-color: #FFFFFF;
+}
+
+.modal-body thead th .th-inner,tbody tr td{
 	padding: 4px;
 	font-size: 12px;
 	text-align: center;
 }
 
-#workerTable input{
+.workerTable-box{
+	margin-top: 50px;
+}
+
+#workerTable{
+	overflow-y: scroll;
+}
+
+#workerTable input,.modal-body .table input{
 	width: 15px;
 	height: 15px;
+}
+
+.modal-body .button_con{
+	margin-top: 10px;
 }

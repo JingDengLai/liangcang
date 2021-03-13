@@ -51,10 +51,10 @@
 							<div style="display: inline-block;" class="form-group">
 								<label>卡号：</label> <input type="text" name="no" maxlength="32" autocomplete="off" />
 							</div>
-							<button type="button" id="search-submit-btn" class="btn btn-search">
+							<button type="button" id="submit_search" class="btn btn-search">
 								<i class="icon-search"></i>查询
 							</button>
-							<button type="button" id="search-reset-btn" class="btn btn-reset">重置</button>
+							<button type="button" id="submit_reset" class="btn btn-reset">重置</button>
 						</form>
 					</div>
 					<form class="form-inline" style="position: relative;">
@@ -123,7 +123,25 @@
 					<h4 class="modal-title">员工列表</h4>
 				</div>
 				<div class="modal-body wicket_body">
-					<table id="workerTable"></table>
+					<div class="wrap-top">
+						<form id="workerSearchform" name="workerSearchform" class="worker-search-box">
+							<div style="display: inline-block;" class="form-group">
+								<label>姓名：</label> <input type="text" id="name" name="name" maxlength="32" autocomplete="off" />
+							</div>
+							<button type="button" id="worker-search-submit-btn" class="btn btn-search">
+								<i class="icon-search"></i>查询
+							</button>
+							<button type="button" id="worker-search-reset-btn" class="btn btn-reset">重置</button>
+						</form>
+					</div>
+				
+					<div class="workerTable-box">
+						<table id="workerTable"></table>
+					</div>
+					<div class="modal-footer button_con">
+						<button type="submit" class="btn btn-primary btn_add btn_add_worker">保存</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					</div>
 				</div>
 			</div>
 		</div>
